@@ -5,7 +5,7 @@ This project contains an API server.
 
 ### Author: Marlene Rinker
 
-- [submission PR](https://github.com/marlenerinker-401-advanced-javascript/notes/pull/7)
+- [submission PR](https://github.com/marlenerinker-401-advanced-javascript/api-server/pull/1)
 <!-- - [tests report](https://github.com/marlenerinker-401-advanced-javascript/notes/actions) -->
 
 ### Setup
