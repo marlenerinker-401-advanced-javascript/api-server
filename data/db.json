@@ -1,0 +1,51 @@
+{
+  "categories": [
+    {
+      "id": 2,
+      "name": "Fabulous",
+      "display_name": "Fabulous",
+      "description": "This is a fabulous item."
+    },
+    {
+      "id": 3,
+      "name": "Electronics",
+      "display_name": "Electronics",
+      "description": "This is an electronics item."
+    },
+    {
+      "id": 4,
+      "name": "Cheap",
+      "display_name": "Cheap",
+      "description": "This is a cheap item."
+    },
+    {
+      "id": 5,
+      "name": "Cheap",
+      "display_name": "Cheap",
+      "description": "This is a cheap item."
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "category": "Electronics",
+      "name": "Product 1",
+      "display_name": "Product One",
+      "description": "This is a great product."
+    },
+    {
+      "id": 2,
+      "category": "Fun",
+      "name": "Product 2",
+      "display_name": "Product Two",
+      "description": "This is a great product."
+    },
+    {
+      "id": 3,
+      "category": "Fabulous",
+      "name": "Product 3",
+      "display_name": "Product Three",
+      "description": "This is a great product."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "api-server",
+  "version": "1.0.0",
+  "description": "This project contains an API server.",
+  "main": "index.js",
+  "scripts": {
+    "start": "json-server data/db.json --route routes.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marlenerinker-401-advanced-javascript/api-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marlenerinker-401-advanced-javascript/api-server/issues"
+  },
+  "homepage": "https://github.com/marlenerinker-401-advanced-javascript/api-server#readme",
+  "dependencies": {
+    "json-server": "^0.16.1"
+  }
+}
