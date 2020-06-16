@@ -11,6 +11,18 @@
       "name": "Electronics",
       "display_name": "Electronics",
       "description": "This is an electronics item."
+    },
+    {
+      "id": 4,
+      "name": "Cheap",
+      "display_name": "Cheap",
+      "description": "This is a cheap item."
+    },
+    {
+      "id": 5,
+      "name": "Cheap",
+      "display_name": "Cheap",
+      "description": "This is a cheap item."
     }
   ],
   "products": [
