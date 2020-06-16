@@ -4,7 +4,8 @@
   "description": "This project contains an API server.",
   "main": "index.js",
   "scripts": {
-    "start": "json-server data/db.json --route routes.json"
+    "start": "node index.js",
+    "watch": "nodemon index.js"
   },
   "repository": {
     "type": "git",
