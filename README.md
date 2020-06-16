@@ -7,6 +7,7 @@ This project contains an API server.
 
 - [submission PR](https://github.com/marlenerinker-401-advanced-javascript/api-server/pull/1)
 <!-- - [tests report](https://github.com/marlenerinker-401-advanced-javascript/notes/actions) -->
+- [Swagger Hub](https://app.swaggerhub.com/apis/marlene-rinker/api-server/0.1#/)
 
 ### Setup
 
@@ -15,6 +16,7 @@ This project contains an API server.
 
 #### Packages to Install
 (see package.json)
+json-server
 
 
 
