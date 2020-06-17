@@ -6,4 +6,4 @@ module.exports = (request, response, next) => {
   next()
 }
 // used ExpressJS guide for reference
-// Paul Depew helped me troubleshoot date format
+// Paul Depew helped me format the date
