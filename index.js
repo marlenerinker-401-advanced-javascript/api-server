@@ -1,18 +1,17 @@
-const jsonServer = require('json-server')
-const server = jsonServer.create()
-const router = jsonServer.router('./data/db.json');
-const middlewares = jsonServer.defaults()
+'use strict';
 
-// our stretch goal for data formatting
-router.render = (req, res) => {
-  res.jsonp({
-    count: res.locals.data.length,
-    results: res.locals.data
-  });
-}
+require('dotenv').config();
+const server = require('./lib/server.js');
+const PORT = process.env.PORT || 3000;
 
-server.use(middlewares)
-server.use(router)
-server.listen(3000, () => {
-  console.log('JSON Server is running')
-});
+
+
+
+
+
+
+
+
+server.listen(PORT, () => console.log(`App is up on PORT:  ${PORT}`));
+
+// server.start(PORT, () => console.log(`App is up on PORT:  ${PORT}`));
