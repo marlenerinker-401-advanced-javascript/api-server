@@ -31,5 +31,6 @@ json-server
 <!-- info about tests goes here -->
 
 #### UML
-<!-- UML diagram goes here -->
+![UML Diagram](api-server-whiteboard.jpg)
+
 
