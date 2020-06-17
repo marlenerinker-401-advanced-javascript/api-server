@@ -3,7 +3,7 @@
 const supergoose = require('cf-supergoose');
 const server = require('../lib/server.js');
 
-const mockRequest = supergoose.server(server);
+const mockRequest = supergoose.server(server.server);
 jest.spyOn(console, 'log').mockImplementation();
 
 
@@ -15,7 +15,7 @@ describe('Testing our server', () => {
       });
   });
 
-  it('shoud be able to POST products', () => {
+  it('should be able to POST products', () => {
     const testProduct = { id: 1, name: 'Product 1' };
     return mockRequest.post('/products')
       .send(testProduct)
