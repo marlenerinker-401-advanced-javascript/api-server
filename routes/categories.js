@@ -4,7 +4,8 @@ const express = require('express');
 
 const router = express.Router();
 
-const categories = [];
+const CategoryModel = require('../lib/models/categories/categories.collection.js');
+const Category = new CategoryModel();
 
 router.post('/', addCategory);
 router.get('/', getAllCategories);
@@ -13,57 +14,37 @@ router.put('/:id', updateCategory);
 router.delete('/:id', deleteCategory);
 
 function addCategory(request, response){
-  categories.push(request.body);
-  response.send(request.body);
+  Category.create(request.body)
+  .then (results => response.send(results + 'was added'))
+  .catch(err => response.send(err));
 }
 
 function getAllCategories(request, response){
-  response.send(categories);
+  Category.get()
+    .then(results => response.send(results))
+    .catch(err => response.send(err));
 }
 
 function getCategory(request, response){
-  const reqID = parseInt(request.params.id);
-  let found = false;
-  categories.forEach(obj => {
-    if (obj.id === reqID) {
-      found = true;
-      response.send(obj);
-    }
-  })
-  if (found === false){
-  response.send('Couldn\'t find that category');
-  }
+  Category.get(request.params.id)
+    .then(results => response.send(results))
+    .catch(err => response.send(err));
 }
 
 function updateCategory(request, response){
-  const reqID = parseInt(request.params.id);
-  let found = false;
-  categories.forEach((obj, i) => {
-    if (obj.id === reqID) {
-      found = true;
-      categories[i] = request.body;
-      response.send('Updated category ' + reqID);
-    }
-  })
-  if (found === false){
-  response.send('Couldn\'t find that category');
-  }
+  Category.update(request.params.id, request.body)
+  .then (results => response.send(request.params.id + ' was updated'))
+  .catch(err => response.send(err));
+
 }
 
 function deleteCategory(request, response){
-  const reqID = parseInt(request.params.id);
-  let found = false;
-  categories.forEach((obj, i) => {
-    if (obj.id === reqID) {
-      categories.splice(i, 1);
-      found = true;
-      response.send('Deleted category ' + reqID);
-    }
-  })
-  if (found === false){
-  response.send('Couldn\'t find that category');
-  }
+  Category.delete(request.params.id)
+  .then (results => response.send(request.params.id + ' was deleted'))
+  .catch(err => response.send(err));
 }
+
+//Paul Depew pointed me in the right direction with some of these. He helped me make my code cleaner than it was.
 
 
 

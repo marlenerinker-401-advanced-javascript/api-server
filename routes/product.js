@@ -4,7 +4,8 @@ const express = require('express');
 
 const router = express.Router();
 
-const products = [];
+const ProductModel = require('../lib/models/products/products.collection.js');
+const Product = new ProductModel();
 
 
 router.post('/', addProduct);
@@ -14,56 +15,34 @@ router.put('/:id', updateProduct);
 router.delete('/:id', deleteProduct);
 
 function addProduct(request, response){
-  products.push(request.body);
-  response.send(request.body);
-}
-
-function deleteProduct(request, response){
-    const reqID = parseInt(request.params.id);
-    let found = false;
-    products.forEach((obj, i) => {
-      if (obj.id === reqID) {
-        products.splice(i, 1);
-        found = true;
-        response.send('Deleted product ' + reqID);
-      }
-    })
-    if (found === false){
-    response.send('Couldn\'t find that product');
-    }
-  }
-
-function getProduct(request, response){
-  const reqID = parseInt(request.params.id);
-  let found = false;
-  products.forEach(obj => {
-    if (obj.id === reqID) {
-      found = true;
-      response.send(obj);
-    }
-  })
-  if (found === false){
-  response.send('Couldn\'t find that product');
-  }
+  Product.create(request.body)
+  .then (results => response.send(results + 'was added'))
+  .catch(err => response.send(err));
 }
 
 function getAllProducts(request, response){
-  response.send(products);
+  Product.get()
+    .then(results => response.send(results))
+    .catch(err => response.send(err));
+}
+
+function getProduct(request, response){
+  Product.get(request.params.id)
+    .then(results => response.send(results))
+    .catch(err => response.send(err));
 }
 
 function updateProduct(request, response){
-  const reqID = parseInt(request.params.id);
-  let found = false;
-  products.forEach((obj, i) => {
-    if (obj.id === reqID) {
-      found = true;
-      products[i] = request.body;
-      response.send('Updated product ' + reqID);
-    }
-  })
-  if (found === false){
-  response.send('Couldn\'t find that product');
-  }
+  Product.update(request.params.id, request.body)
+  .then (results => response.send(request.params.id + ' was updated'))
+  .catch(err => response.send(err));
+
+}
+
+function deleteProduct(request, response){
+  Product.delete(request.params.id)
+  .then (results => response.send(request.params.id + ' was deleted'))
+  .catch(err => response.send(err));
 }
 
 

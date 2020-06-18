@@ -10,6 +10,11 @@ mongoose.connect(process.env.MONGODB_ATLAS_URI, {
   useUnifiedTopology: true
 });
 
+const db = mongoose.connection;
+db.on('open', () => {
+  console.log('connected to mongo');
+});
+
 
 
 
