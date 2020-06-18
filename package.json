@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "watch": "nodemon index.js",
-    "test": "jest --verbose"
+    "test": "jest --verbose --coverage"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,8 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jest": "^26.0.1",
-    "json-server": "^0.16.1"
+    "json-server": "^0.16.1",
+    "mongoose": "^5.9.19"
   },
   "directories": {
     "doc": "docs",
