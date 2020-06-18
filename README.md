@@ -6,7 +6,7 @@ This project contains an API server.
 ### Author: Marlene Rinker
 
 - [submission PR](https://github.com/marlenerinker-401-advanced-javascript/api-server/pull/7)
-[<!-- - [tests report](https://github.com/marlenerinker-401-advanced-javascript/notes/actions) -->]
+<!-- - [tests report](https://github.com/marlenerinker-401-advanced-javascript/notes/actions) -->
 - [Swagger Hub](https://app.swaggerhub.com/apis/marlene-rinker/api-server/0.1#/)
 
 ### Setup
