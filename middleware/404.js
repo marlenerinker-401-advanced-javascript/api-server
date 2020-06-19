@@ -6,5 +6,5 @@ module.exports = (request, response) => {
     return;
   }
   console.log('__ERROR!!__ :: '+ request.baseUrl + ' not found');
-  response.status(404).send('Can\'t ' + request.method + ' ' + request.baseUrl);
+  response.status(404).send('Can\'t ' + request.method + ' ' + request.path);
 }

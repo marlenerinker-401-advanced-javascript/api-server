@@ -5,9 +5,11 @@ This project contains an API server.
 
 ### Author: Marlene Rinker
 
-- [submission PR](https://github.com/marlenerinker-401-advanced-javascript/api-server/pull/7)
-<!-- - [tests report](https://github.com/marlenerinker-401-advanced-javascript/notes/actions) -->
+- [submission PR](https://github.com/marlenerinker-401-advanced-javascript/api-server/pull/9)
+- [tests report](https://github.com/marlenerinker-401-advanced-javascript/api-server/actions)
 - [Swagger Hub](https://app.swaggerhub.com/apis/marlene-rinker/api-server/0.1#/)
+
+
 
 ### Setup
 
@@ -32,12 +34,13 @@ node index.js
 nodemon index.js
 
 
-
-
 #### Tests
 <!-- info about tests goes here -->
 
 #### UML
 ![UML Diagram](api-server-whiteboard.jpg)
 
+#### Citations
 
+Ashley Biermann helped me with middleware testing.
+Paul Depew pointed me in the right direction with some of router functions. He helped me make my code cleaner than it was.
