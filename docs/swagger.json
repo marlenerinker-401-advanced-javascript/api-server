@@ -6,175 +6,90 @@
     "title" : "defaultTitle"
   },
   "paths" : {
-    "/categories" : {
+    "/api/categories/" : {
       "get" : {
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "name",
-          "in" : "query",
-          "required" : false,
-          "type" : "string",
-          "x-example" : "Electronics"
-        } ],
+        "description" : "Auto generated using Swagger Inspector",
+        "parameters" : [ ],
         "responses" : {
           "200" : {
-            "description" : "Definition generated from Swagger Inspector",
-            "schema" : {
-              "$ref" : "#/definitions/Model2"
-            }
+            "description" : "Auto generated using Swagger Inspector"
           }
         }
       }
     },
-    "/categories/1" : {
-      "get" : {
-        "produces" : [ "application/json" ],
+    "/api/categories" : {
+      "post" : {
+        "description" : "Auto generated using Swagger Inspector",
         "parameters" : [ ],
         "responses" : {
           "200" : {
-            "description" : "Definition generated from Swagger Inspector",
-            "schema" : {
-              "$ref" : "#/definitions/Model3"
-            }
+            "description" : "Auto generated using Swagger Inspector"
           }
         }
-      },
+      }
+    },
+    "/api/categories/5eec04d5439e2e1d13516069" : {
       "put" : {
-        "consumes" : [ "application/json" ],
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "in" : "body",
-          "name" : "body",
-          "required" : false,
-          "schema" : {
-            "$ref" : "#/definitions/Model0"
-          },
-          "x-examples" : {
-            "application/json" : "{\n    \"id\": 1,\n    \"name\": \"Expensive\",\n    \"display_name\": \"Expensive\",\n    \"description\": \"This is an expensive item.\"\n}"
-          }
-        } ],
+        "description" : "Auto generated using Swagger Inspector",
+        "parameters" : [ ],
         "responses" : {
           "200" : {
-            "description" : "Definition generated from Swagger Inspector",
-            "schema" : {
-              "$ref" : "#/definitions/Model4"
-            }
+            "description" : "Auto generated using Swagger Inspector"
           }
         }
       },
       "delete" : {
-        "consumes" : [ "application/json" ],
-        "produces" : [ "application/json" ],
+        "description" : "Auto generated using Swagger Inspector",
         "parameters" : [ ],
         "responses" : {
           "200" : {
-            "description" : "Definition generated from Swagger Inspector",
-            "schema" : {
-              "$ref" : "#/definitions/Model5"
-            }
+            "description" : "Auto generated using Swagger Inspector"
+          }
+        }
+      }
+    },
+    "/api/products/" : {
+      "get" : {
+        "description" : "Auto generated using Swagger Inspector",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Auto generated using Swagger Inspector"
+          }
+        }
+      }
+    },
+    "/api/products/5eec0533439e2e1d1351606a" : {
+      "put" : {
+        "description" : "Auto generated using Swagger Inspector",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Auto generated using Swagger Inspector"
+          }
+        }
+      },
+      "delete" : {
+        "description" : "Auto generated using Swagger Inspector",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Auto generated using Swagger Inspector"
+          }
+        }
+      }
+    },
+    "/api/products" : {
+      "post" : {
+        "description" : "Auto generated using Swagger Inspector",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Auto generated using Swagger Inspector"
           }
         }
       }
     }
   },
-  "definitions" : {
-    "Model0" : {
-      "properties" : {
-        "id" : {
-          "type" : "integer",
-          "format" : "int32"
-        },
-        "name" : {
-          "type" : "string"
-        },
-        "display_name" : {
-          "type" : "string"
-        },
-        "description" : {
-          "type" : "string"
-        }
-      }
-    },
-    "Array" : {
-      "properties" : {
-        "id" : {
-          "type" : "integer",
-          "format" : "int32"
-        },
-        "name" : {
-          "type" : "string"
-        },
-        "display_name" : {
-          "type" : "string"
-        },
-        "description" : {
-          "type" : "string"
-        }
-      }
-    },
-    "Model1" : {
-      "type" : "array",
-      "items" : {
-        "$ref" : "#/definitions/Array"
-      }
-    },
-    "Model2_Array" : {
-      "properties" : {
-        "id" : {
-          "type" : "integer",
-          "format" : "int32"
-        },
-        "name" : {
-          "type" : "string"
-        },
-        "display_name" : {
-          "type" : "string"
-        },
-        "description" : {
-          "type" : "string"
-        }
-      }
-    },
-    "Model2" : {
-      "type" : "array",
-      "items" : {
-        "$ref" : "#/definitions/Model2_Array"
-      }
-    },
-    "Model3" : {
-      "properties" : {
-        "id" : {
-          "type" : "integer",
-          "format" : "int32"
-        },
-        "name" : {
-          "type" : "string"
-        },
-        "display_name" : {
-          "type" : "string"
-        },
-        "description" : {
-          "type" : "string"
-        }
-      }
-    },
-    "Model4" : {
-      "properties" : {
-        "id" : {
-          "type" : "integer",
-          "format" : "int32"
-        },
-        "name" : {
-          "type" : "string"
-        },
-        "display_name" : {
-          "type" : "string"
-        },
-        "description" : {
-          "type" : "string"
-        }
-      }
-    },
-    "Model5" : { }
-  }
+  "definitions" : { }
 }
