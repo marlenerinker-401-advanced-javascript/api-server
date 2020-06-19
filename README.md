@@ -40,4 +40,7 @@ nodemon index.js
 #### UML
 ![UML Diagram](api-server-whiteboard.jpg)
 
+#### Citations
 
+Ashley Biermann helped me with middleware testing.
+Paul Depew pointed me in the right direction with some of router functions. He helped me make my code cleaner than it was.

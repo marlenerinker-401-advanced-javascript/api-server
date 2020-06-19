@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = (err, request, response) => {
-  console.log('__ERROR!!__ :: ', err);
+module.exports = (request, response) => {
+  console.log('__ERROR!!__ :: 500');
   response.status(500).send('Server error');
 }
