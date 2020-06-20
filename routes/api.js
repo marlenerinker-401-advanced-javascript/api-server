@@ -17,7 +17,7 @@ router.delete('/:model/:id', deleteOne);
 
 function addOne(request, response){
   request.model.create(request.body)
-  .then (results => response.send(results + 'was added'))
+  .then (results => response.send(results))
   .catch(err => response.send(err));
 }
 
