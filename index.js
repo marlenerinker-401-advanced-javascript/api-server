@@ -1,5 +1,7 @@
 'use strict';
 
+//File that's used to start the app
+
 /**
  * Start App
  * @module index

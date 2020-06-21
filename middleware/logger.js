@@ -1,5 +1,7 @@
 'use strict';
 
+//Module that logs the request information to the console
+
 /**
  * Logger
  * @module logger

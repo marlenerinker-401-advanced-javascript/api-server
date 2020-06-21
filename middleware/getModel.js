@@ -1,5 +1,7 @@
 'use strict';
 
+//Module that determines which model is needed based on the request. Returns an error if requested model doesn't exist.
+
 /**
  * getModel
  * @module getModel

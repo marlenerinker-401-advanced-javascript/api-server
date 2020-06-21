@@ -1,5 +1,7 @@
 'use strict';
 
+// Module that creates a timestamp in this format: Sat Jun 20 2020 17:46:07 GMT-0700 (Pacific Daylight Time)
+
 /**
  * Timestamp
  * @module timestamp
