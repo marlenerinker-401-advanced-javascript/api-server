@@ -35,7 +35,47 @@ nodemon index.js
 
 
 #### Tests
-<!-- info about tests goes here -->
+- Unit Tests: `npm test` (run from the `__tests__` folder to run all tests, multiple test files are in that folder)
+
+- Assertions Made:
+
+  - Testing that a product can be added to the database
+
+  - Testing that a product can be found in the database by ID and updated
+
+  - Testing that a product can be found in the database by ID and deleted
+
+  - Testing that a product can be retrieved from the database by ID
+
+  - Testing that all products can be retrieved from the database
+
+  - Testing that a category can be added to the database
+
+  - Testing that a category can be found in the database by ID and updated
+
+  - Testing that a category can be found in the database by ID and deleted
+
+  - Testing that a category can be retrieved from the database by ID
+
+  - Testing that all categories can be retrieved from the database
+
+  - Testing that you can't add on an invalid route
+
+  - Testing that you can't update on an invalid route
+
+  - Testing that you can't get on an invalid route
+
+  - Testing that you can't delete on an invalid route   
+
+  - Testing if timestamp is created
+
+  - Testing if get 404 error message
+
+  - Testing if get 500 error message
+
+  - Testing if request is logged
+
+
 
 #### UML
 ![UML Diagram](api-server-whiteboard.jpg)
@@ -43,4 +83,5 @@ nodemon index.js
 #### Citations
 
 Ashley Biermann helped me with middleware testing.
-Paul Depew pointed me in the right direction with some of router functions. He helped me make my code cleaner than it was.
+Paul Depew pointed me in the right direction with some of router functions. He also helped me format the date in my timestamp.
+Used the Express.js docs for reference on the timestamp functionality.

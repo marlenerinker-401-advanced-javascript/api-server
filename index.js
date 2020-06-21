@@ -1,5 +1,10 @@
 'use strict';
 
+/**
+ * Start App
+ * @module index
+ */
+
 require('dotenv').config();
 const server = require('./lib/server.js');
 const PORT = process.env.PORT || 3000;

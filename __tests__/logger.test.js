@@ -8,8 +8,8 @@ let next = jest.fn();
 const consoleSpy = jest.spyOn(console, 'log').mockImplementation();
 
 
-describe('Middleware test', () => {
-  it('should console log stuff and move on', () => {
+describe('Logger test', () => {
+  it('should console log the request', () => {
 
     logger(req, res, next)
     expect(consoleSpy).toHaveBeenCalledWith('__REQUEST__ :: test test test');

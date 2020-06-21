@@ -2,127 +2,219 @@
 
 const supergoose = require('cf-supergoose');
 const server = require('../lib/server.js');
-const { deleteOne } = require('../lib/models/products/products.schema.js');
+// const { deleteOne } = require('../lib/models/products/products.schema.js');
 
 const mockRequest = supergoose.server(server.server);
 // jest.spyOn(console, 'log').mockImplementation();
 
 jest.spyOn(global.console, 'log');
 
-// beforeAll(() => {
-//   mockRequest.startDB();
-// })
+beforeAll(() => {
+  supergoose.startDB();
+})
 
-// afterAll(() => {
-//   mockRequest.stopDB();
-// })
+afterAll(() => {
+  supergoose.stopDB();
+})
 
 // tests to create
 
 describe('testing adding to database', () => {
 
-  // it('should log when product added to database', () => {
-  //   console.log('here in adding')
-  //   let product = { name: "test", display_name: "test", description: "test" }
-  //   return mockRequest.post('/api/products')
-  //   .send(product)
-  //   .then(results => {
-  //     console.log(results.body);
-  //     expect(console.log).toHaveBeenCalled();
-  //     // done();
-  //   })
-  //   .catch(err => console.log(err));
-  // });
-
-  it('should log when category added to database', () => {
-    // test goes here - response is "results was added where results is the object"
+  it('should log when product added to database', (done) => {
+    let product = { name: "test", display_name: "test", description: "test" }
+    return mockRequest.post('/api/products')
+    .send(product)
+    .then(results => {
+      expect(results.body.name).toEqual("test");
+      done();
+    })
+    .catch(err => console.log(err));
   });
 
-  it('should log when try to add on invalid route', () => {
-    // test goes here response is "Invalid Method"
+  it('should log when category added to database', (done) => {
+    let category = { name: "test", display_name: "test", description: "test" }
+    return mockRequest.post('/api/categories')
+    .send(category)
+    .then(results => {
+      expect(results.body.name).toEqual("test");
+      done();
+    })
+    .catch(err => console.log(err));
+  });
+
+  it('should log when try to add on invalid route', (done) => {
+    return mockRequest.post('/api/wrong')
+    .then(results => {
+      expect(results.text).toContain("Invalid Model");
+      done();
+    })
+    .catch(err => console.log(err));
 
   });
 }); 
 
 describe('testing getting from database', () => {
 
-  it('should be able to get all products', () => {
-    // return mockRequest.get('/api/products')
-    // .then(results => {
-    //   console.log(results.body);
-    //   expect(console.log).toHaveBeenCalled();
-    // })
+  it('should be able to get all products', (done) => {
+    let product = { name: "test2", display_name: "test2", description: "test2" }
+    mockRequest.post('/api/products')
+    .send(product)
+    .then (results => {
+    return mockRequest.get('/api/products');
+    })
+    .then(results => {
+      expect(results.body.count).toEqual(2);
+      expect(results.body.results[0].name).toEqual("test");
+      expect(results.body.results[1].name).toEqual("test2");
+      done();
+    })
   });
 
-  it('should be able to get all categories', () => {
-    // test goes here - response is an object with count and results
+  it('should be able to get all categories', (done) => {
+    let category = { name: "test2", display_name: "test2", description: "test2" }
+    mockRequest.post('/api/categories')
+    .send(category)
+    .then (results => {
+    return mockRequest.get('/api/categories');
+    })
+    .then(results => {
+      expect(results.body.count).toEqual(2);
+      expect(results.body.results[0].name).toEqual("test");
+      expect(results.body.results[1].name).toEqual("test2");
+      done();
+    })
   });
 
-  it('should be able to get a product by ID', () => {
-    // test goes here - response is response is an object with count and results which just has the one product
-  });
-
-  it('should be able to get a category by ID', () => {
-    // test goes here - response is response is an object with count and results which just has the one category
-  });
-
-  it('should log when try to get on invalid route', () => {
-    // test goes here response is "Invalid Method"
-
-  });
-});
-
-describe('testing getting from database', () => {
-
-  it('should be able to delete a product by ID', () => {
-    // test goes here - response is response is request.params.id was deleted
-  });
-
-  it('should be able to delete a category by ID', () => {
-    // test goes here - response is response is request.params.id was deleted
-  });
-
-  it('should log when try to delete on invalid route', () => {
-    // test goes here response is "Invalid Method"
+  it('should be able to get a product by ID', (done) => {
+    mockRequest.get('/api/products')
+    .then(results => {
+      let productToFind = results.body.results[0]._id;
+      return mockRequest.get('/api/products/' + productToFind);
+    })
+    .then(results => {
+      let requestPath = results.req.path;
+      let splitPlace = '/api/products/';
+      let productID = requestPath.split(splitPlace).pop();
+      expect(results.body.count).toEqual(1);
+      expect(results.body.results[0]._id).toEqual(productID);
+      done();
+    })
 
   });
+
+  it('should be able to get a category by ID', (done) => {
+    mockRequest.get('/api/categories')
+    .then(results => {
+      let categoryToFind = results.body.results[0]._id;
+      return mockRequest.get('/api/categories/' + categoryToFind);
+    })
+    .then(results => {
+      let requestPath = results.req.path;
+      let splitPlace = '/api/categories/';
+      let categoryID = requestPath.split(splitPlace).pop();
+      expect(results.body.count).toEqual(1);
+      expect(results.body.results[0]._id).toEqual(categoryID);
+      done();
+    })
+  });
+
+  it('should log when try to get on invalid route', (done) => {
+    return mockRequest.get('/api/wrong')
+    .then(results => {
+      expect(results.text).toContain("Invalid Model");
+      done();
+    })
+    .catch(err => console.log(err));
+
+  });
+
+
 });
 
 describe('testing updating record in database', () => {
 
-  it('should be able to update a product by ID', () => {
-    // test goes here - response is response is request.params.id was deleted
+  it('should be able to update a product by ID', (done) => {
+    mockRequest.get('/api/products')
+    .then(results => {
+      let productToUpdate = results.body.results[0]._id;
+      return mockRequest.put('/api/products/' + productToUpdate).send({ name: "updated", display_name: "updated", description: "updated" });
+    })
+    .then(results => {
+      let requestPath = results.req.path;
+      let splitPlace = '/api/products/';
+      let productID = requestPath.split(splitPlace).pop();
+      expect(results.text).toEqual(productID + " was updated");
+      done();
+    })
   });
 
-  it('should be able to update a category by ID', () => {
-    // test goes here - response is response is request.params.id was deleted
+  it('should be able to update a category by ID', (done) => {
+    mockRequest.get('/api/categories')
+    .then(results => {
+      let categoryToUpdate = results.body.results[0]._id;
+      return mockRequest.put('/api/categories/' + categoryToUpdate).send({ name: "updated", display_name: "updated", description: "updated" });
+    })
+    .then(results => {
+      let requestPath = results.req.path;
+      let splitPlace = '/api/categories/';
+      let categoryID = requestPath.split(splitPlace).pop();
+      expect(results.text).toEqual(categoryID + " was updated");
+      done();
+    })
   });
 
-  it('should log when try to update on invalid route', () => {
-    // test goes here response is "Invalid Method"
+  it('should log when try to update on invalid route', (done) => {
+    return mockRequest.put('/api/wrong/123')
+    .then(results => {
+      expect(results.text).toContain("Invalid Model");
+      done();
+    })
+    .catch(err => console.log(err));
 
   });
 });
 
-describe ('testing middleware', () => {
+describe('testing deleting from database', () => {
 
-  it('timestamp should work', () => {
-    // run a get and make sure the timestamp in the logger is correct
-
+  it('should be able to delete a product by ID', (done) => {
+    mockRequest.get('/api/products')
+    .then(results => {
+      let productToDelete = results.body.results[0]._id;
+      return mockRequest.delete('/api/products/' + productToDelete);
+    })
+    .then(results => {
+      let requestPath = results.req.path;
+      let splitPlace = '/api/products/';
+      let productID = requestPath.split(splitPlace).pop();
+      expect(results.text).toEqual(productID + " was deleted");
+      done();
+    })
   });
 
-  it('logger should function', () => {
-    // run a get and verify the logger
-
+  it('should be able to delete a category by ID', (done) => {
+    mockRequest.get('/api/categories')
+    .then(results => {
+      let categoryToDelete = results.body.results[0]._id;
+      return mockRequest.delete('/api/categories/' + categoryToDelete);
+    })
+    .then(results => {
+      let requestPath = results.req.path;
+      let splitPlace = '/api/categories/';
+      let categoryID = requestPath.split(splitPlace).pop();
+      expect(results.text).toEqual(categoryID + " was deleted");
+      done();
+    })
   });
 
-  it('404 error should happen correctly', () => {
-    // use a route that gets a 404 error to test the message
-
-  });
-
-  it('500 error should happen correctly', () => {
-    // do something to get a 500 error to test the message
+  it('should log when try to delete on invalid route', (done) => {
+    return mockRequest.delete('/api/wrong/123')
+    .then(results => {
+      expect(results.text).toContain("Invalid Model");
+      done();
+    })
+    .catch(err => console.log(err));
 
   });
 });
+

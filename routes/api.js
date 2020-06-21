@@ -1,4 +1,7 @@
-'use strict';
+'use strict';/**
+ * API module
+ * @module api
+ */
 
 const express = require('express');
 const router = express.Router();
@@ -14,12 +17,28 @@ router.get('/:model/:id', getOne);
 router.put('/:model/:id', updateOne);
 router.delete('/:model/:id', deleteOne);
 
+/**
+ * addOne - adds one thing to the database
+ * @function addOne
+ * @param {*} request 
+ * @param {*} response 
+ * @returns {object}
+ */
+
 
 function addOne(request, response){
   request.model.create(request.body)
-  .then (results => response.send(results + 'was added'))
+  .then (results => response.send(results))
   .catch(err => response.send(err));
 }
+
+/**
+ * getAll - gets all of the requested things from the database
+ * @function getAll
+ * @param {*} request 
+ * @param {*} response 
+ * @returns {object}
+ */
 
 function getAll(request, response){
   request.model.get()
@@ -27,11 +46,27 @@ function getAll(request, response){
     .catch(err => response.send(err));
 }
 
+/**
+ * getOne - gets the requested thing from the database
+ * @function getOne
+ * @param {*} request 
+ * @param {*} response 
+ * @returns {object}
+ */
+
 function getOne(request, response){
   request.model.get(request.params.id)
     .then(results => response.send(results))
     .catch(err => response.send(err));
 }
+
+/**
+ * updateOne - updates a thing in the database
+ * @function updateOne
+ * @param {*} request 
+ * @param {*} response 
+ * @returns {string}
+ */
 
 function updateOne(request, response){
   request.model.update(request.params.id, request.body)
@@ -39,6 +74,14 @@ function updateOne(request, response){
   .catch(err => response.send(err));
 
 }
+
+/**
+ * deleteOne - deletes a thing from the database
+ * @function deleteOne
+ * @param {*} request 
+ * @param {*} response 
+ * @returns {string}
+ */
 
 function deleteOne(request, response){
   request.model.delete(request.params.id)
