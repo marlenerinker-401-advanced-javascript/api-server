@@ -1,5 +1,19 @@
 'use strict';
 
+/**
+ * getModel
+ * @module getModel
+ */
+
+ /**
+  * getModel creates the model needed for the request
+  * @param request
+  * @param response
+  * @param next
+  * @function getModel
+  * @returns {object}
+  */
+
 const CategoryModel = require('../lib/models/categories/categories.collection.js');
 const ProductModel = require('../lib/models/products/products.collection.js');
 
