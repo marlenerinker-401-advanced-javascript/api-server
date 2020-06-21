@@ -5,7 +5,7 @@ This project contains an API server.
 
 ### Author: Marlene Rinker
 
-- [Submission PR](https://github.com/marlenerinker-401-advanced-javascript/api-server/pull/9)
+- [Submission PR](https://github.com/marlenerinker-401-advanced-javascript/api-server/pull/11)
 - [Tests Report](https://github.com/marlenerinker-401-advanced-javascript/api-server/actions)
 - [Swagger Hub](https://app.swaggerhub.com/apis/marlene-rinker/api-server/0.1#/)
 - [Heroku deployment](https://app-server-mr401.herokuapp.com/)
