@@ -1,5 +1,7 @@
 'use strict';
 
+//Module that handles 500 errors (server errors)
+
 /**
  * 500
  * @module 500

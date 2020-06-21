@@ -1,5 +1,7 @@
 'use strict';
 
+//Module that handles 404 errors
+
 /**
  * 404
  * @module 404
